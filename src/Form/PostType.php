@@ -4,14 +4,14 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class PostType extends AbstractType
 {
@@ -27,20 +27,20 @@ class PostType extends AbstractType
             ->add('age', BirthdayType::class, [
                 'label' => 'Datum rođenja',
                 'placeholder' => [
-                    'year' => 'godina', 'month' => 'Month', 'day' => 'Day',
+                    'year' => 'Godina', 'month' => 'Mjesec', 'day' => 'Dan',
                 ]
             ])
-            ->add('city', TextType::class, [
-                'label' => 'Grad'
+            ->add('city', ChoiceType::class, [
+                'label' => 'Spol',
+                'choices'  => ['Muško' => true,
+                    'Žensko' => false
+                ]
             ])
-            ->add('status', TextType::class, [
-                'label' => 'Status'
+            ->add('status', EmailType::class, [
+                'label' => 'Adresa e-pošte'
             ])
-            ->add('height', IntegerType::class, [
-                'label' => 'Visina'
-            ])
-            ->add('weight', IntegerType::class, [
-                'label' => 'Težina'
+            ->add('height', PasswordType::class, [
+                'label' => 'Lozinka'
             ])
             ->add('Spremi', SubmitType::class)
         ;
