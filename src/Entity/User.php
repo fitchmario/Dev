@@ -34,24 +34,19 @@ class User
     private $birthDate;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="boolean")
      */
-    private $city;
+    private $sex;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=200)
      */
-    private $status;
+    private $email;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $height;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $weight;
+    private $password;
 
     public function getId(): ?int
     {
@@ -87,63 +82,52 @@ class User
         return $this->firstName.' '. $this->lastName;
     }
 
-    public function getAge(): ?DateTimeInterface
+    public function getBirthDate(): ?\DateTimeInterface
     {
         return $this->birthDate;
     }
 
-    public function setAge(DateTimeInterface $age): self
+    public function setBirthDate(\DateTimeInterface $birthDate): self
     {
-        $this->birthDate = $age;
+        $this->birthDate = $birthDate;
 
         return $this;
     }
 
-    public function getCity(): ?string
+    public function getSex(): ?bool
     {
-        return $this->city;
+        return $this->sex;
     }
 
-    public function setCity(string $city): self
+    public function setSex(bool $sex): self
     {
-        $this->city = $city;
+        $this->sex = $sex;
 
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getEmail(): ?string
     {
-        return $this->status;
+        return $this->email;
     }
 
-    public function setStatus(string $status): self
+    public function setEmail(string $email): self
     {
-        $this->status = $status;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getHeight(): ?int
+    public function getPassword(): ?string
     {
-        return $this->height;
+        return $this->password;
     }
 
-    public function setHeight(int $height): self
+    public function setPassword(string $password): self
     {
-        $this->height = $height;
+        $this->password = $password;
 
         return $this;
     }
 
-    public function getWeight(): ?int
-    {
-        return $this->weight;
-    }
-
-    public function setWeight(int $weight): self
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
 }
