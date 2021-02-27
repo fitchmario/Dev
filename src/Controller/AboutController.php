@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Country;
 use App\Entity\User;
+use App\Repository\CountryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,8 +17,9 @@ class AboutController extends AbstractController
     public function index(): Response
     {
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+        $country = $this->getDoctrine()->getRepository(Country::class)->findAll();
 
-        return $this->render('about/index.html.twig' , array('users' => $users));
+        return $this->render('about/index.html.twig' , array('users' => $users, 'country'=> $country));
     }
 
     /**

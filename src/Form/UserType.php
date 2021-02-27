@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -13,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PostType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -24,22 +26,26 @@ class PostType extends AbstractType
             ->add('lastName', TextType::class, [
                 'label' => 'Prezime'
             ])
-            ->add('age', BirthdayType::class, [
+            ->add('birthDate', BirthdayType::class, [
                 'label' => 'Datum rođenja',
                 'placeholder' => [
                     'year' => 'Godina', 'month' => 'Mjesec', 'day' => 'Dan',
                 ]
             ])
-            ->add('city', ChoiceType::class, [
+            ->add('sex', ChoiceType::class, [
                 'label' => 'Spol',
                 'choices'  => ['Muško' => true,
                     'Žensko' => false
                 ]
             ])
-            ->add('status', EmailType::class, [
+            ->add('country', EntityType::class, [
+                'label' => 'Država',
+                'class' => Country::class
+            ])
+            ->add('email', EmailType::class, [
                 'label' => 'Adresa e-pošte'
             ])
-            ->add('height', PasswordType::class, [
+            ->add('password', PasswordType::class, [
                 'label' => 'Lozinka'
             ])
             ->add('Spremi', SubmitType::class)

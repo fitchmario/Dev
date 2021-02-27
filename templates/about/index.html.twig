@@ -20,6 +20,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Korisnik</td>
+                    <td>Država</td>
                     <td>Opcije</td>
                 </tr>
                 </thead>
@@ -28,13 +29,13 @@
                     <tr>
                         <td> {{ user.id }} </td>
                         <td> {{ user.getFullName }} </td>
+                        <td> {{ user.country.name }} </td>
                         <td> <a href="#"> Edit </a></td>
                         <td> <a href="{{ path('app_delete', { id: user.id }) }}"> Delete </a></td>
                     </tr>
 
                 {% endfor %}
                 </tbody>
-
             </table>
 
         </div>

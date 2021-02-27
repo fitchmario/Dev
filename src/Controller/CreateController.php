@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\PostType;
+use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,8 +18,7 @@ class CreateController extends AbstractController
     public function index(Request $request): Response
     {
         $user = new User();
-
-        $form = $this->createForm(PostType::class, $user, [
+        $form = $this->createForm(UserType::class, $user, [
             'action' => $this->generateUrl('app_create'),
             'method' => 'POST',
         ]);

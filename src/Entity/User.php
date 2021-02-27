@@ -48,6 +48,12 @@ class User
      */
     private $password;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $country;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -82,12 +88,12 @@ class User
         return $this->firstName.' '. $this->lastName;
     }
 
-    public function getBirthDate(): ?\DateTimeInterface
+    public function getBirthDate(): ?DateTimeInterface
     {
         return $this->birthDate;
     }
 
-    public function setBirthDate(\DateTimeInterface $birthDate): self
+    public function setBirthDate(DateTimeInterface $birthDate): self
     {
         $this->birthDate = $birthDate;
 
@@ -126,6 +132,18 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getCountry(): ?Country
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?Country $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }
