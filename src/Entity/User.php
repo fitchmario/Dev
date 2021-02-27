@@ -50,7 +50,7 @@ class User
 
     /**
      * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="users")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
     private $country;
 
