@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method CheckPoint[]    findAll()
  * @method CheckPoint[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CheckpointRepository extends ServiceEntityRepository
+class CheckPointRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

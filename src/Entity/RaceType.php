@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CheckPointRepository;
+use App\Repository\RaceTypeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CheckPointRepository::class)
+ * @ORM\Entity(repositoryClass=RaceTypeRepository::class)
  */
-class CheckPoint
+class RaceType
 {
     /**
      * @ORM\Id
@@ -18,23 +18,23 @@ class CheckPoint
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=30)
      */
-    private $number;
+    private $name;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNumber(): ?int
+    public function getName(): ?string
     {
-        return $this->number;
+        return $this->name;
     }
 
-    public function setNumber(int $number): self
+    public function setName(string $name): self
     {
-        $this->number = $number;
+        $this->name = $name;
 
         return $this;
     }

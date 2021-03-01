@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\RaceRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -64,12 +65,12 @@ class Race
         return $this;
     }
 
-    public function getRegistrationDate(): ?\DateTimeInterface
+    public function getRegistrationDate(): ?DateTimeInterface
     {
         return $this->registrationDate;
     }
 
-    public function setRegistrationDate(\DateTimeInterface $registrationDate): self
+    public function setRegistrationDate(DateTimeInterface $registrationDate): self
     {
         $this->registrationDate = $registrationDate;
 
@@ -100,24 +101,24 @@ class Race
         return $this;
     }
 
-    public function getStartTime(): ?\DateTimeInterface
+    public function getStartTime(): ?DateTimeInterface
     {
         return $this->startTime;
     }
 
-    public function setStartTime(\DateTimeInterface $startTime): self
+    public function setStartTime(DateTimeInterface $startTime): self
     {
         $this->startTime = $startTime;
 
         return $this;
     }
 
-    public function getMaxTime(): ?\DateTimeInterface
+    public function getMaxTime(): ?DateTimeInterface
     {
         return $this->maxTime;
     }
 
-    public function setMaxTime(\DateTimeInterface $maxTime): self
+    public function setMaxTime(DateTimeInterface $maxTime): self
     {
         $this->maxTime = $maxTime;
 
